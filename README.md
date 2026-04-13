@@ -13,17 +13,33 @@ A Firefox browser extension that works as a password manager — with a twist: y
 
 ## Installation (Firefox)
 
-### Development Mode
+### Option 1 — Firefox Developer Edition (Permanent, Recommended)
+
+Firefox Developer Edition allows unsigned extensions to be installed permanently, surviving browser restarts.
+
+1. **Download Firefox Developer Edition** from [mozilla.org/firefox/developer](https://www.mozilla.org/en-US/firefox/developer/)
+2. Open Firefox Developer Edition and navigate to `about:config`
+3. Search for `xpinstall.signatures.required` and set it to **`false`**
+   - Click the toggle icon on the right to flip the value
+4. Navigate to `about:debugging`
+5. Click **"This Firefox"** → **"Load Temporary Add-on..."**
+6. Select the `manifest.json` file from this folder
+
+> The extension will now persist across browser restarts in Firefox Developer Edition. This works because Developer Edition relaxes signature enforcement, which is required for locally-loaded unsigned extensions.
+
+### Option 2 — Temporary Load (Any Firefox, Session Only)
+
+The extension will be removed when Firefox is closed.
+
 1. Clone or download this repo
 2. Open Firefox and navigate to `about:debugging`
 3. Click **"This Firefox"** → **"Load Temporary Add-on..."**
 4. Select the `manifest.json` file from this folder
 
-### Production (AMO)
+### Option 3 — Install from Mozilla Add-ons (AMO)
+
 Once approved on Mozilla Add-ons, users can install directly from:  
 https://addons.mozilla.org/en-US/firefox/addon/minepass/
-
-> For permanent installation without the browser session restriction, use Firefox Developer Edition and set `xpinstall.signatures.required` to `false` in `about:config`.
 
 ## Usage
 

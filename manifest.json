@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "MinePass",
   "version": "1.0.0",
-  "description": "Password manager that requires winning Minesweeper to unlock credentials",
+  "description": "A password manager with a twist — win a round of Minesweeper to unlock your credentials. AES-256-GCM encrypted vault with autofill support for any login form.",
   "homepage_url": "https://github.com/yourusername/minesweeper-passwords",
   "author": "Your Name",
   "browser_specific_settings": {
