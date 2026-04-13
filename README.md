@@ -13,10 +13,15 @@ A Firefox browser extension that works as a password manager — with a twist: y
 
 ## Installation (Firefox)
 
+### Development Mode
 1. Clone or download this repo
 2. Open Firefox and navigate to `about:debugging`
 3. Click **"This Firefox"** → **"Load Temporary Add-on..."**
 4. Select the `manifest.json` file from this folder
+
+### Production (AMO)
+Once approved on Mozilla Add-ons, users can install directly from:  
+https://addons.mozilla.org/en-US/firefox/addon/minepass/
 
 > For permanent installation without the browser session restriction, use Firefox Developer Edition and set `xpinstall.signatures.required` to `false` in `about:config`.
 
@@ -39,6 +44,36 @@ A Firefox browser extension that works as a password manager — with a twist: y
 | Left click | Reveal cell |
 | Right click | Place / remove flag |
 | 😐 button | New game |
+
+## Development
+
+### Prerequisites
+- Node.js (for web-ext)
+- Firefox Developer Edition (recommended)
+
+### Setup
+```bash
+npm install
+```
+
+### Build Commands
+```bash
+# Lint the extension
+npm run lint
+
+# Build unsigned extension
+npm run build
+
+# Sign for AMO submission (requires API credentials)
+npm run sign
+```
+
+### AMO Submission
+1. Create a Mozilla developer account at https://addons.mozilla.org/en-US/developers/
+2. Get your API credentials from the developer dashboard
+3. Set environment variables: `AMO_JWT_ISSUER` and `AMO_JWT_SECRET`
+4. Run `npm run sign` to build and submit
+5. Check submission status at https://addons.mozilla.org/en-US/developers/
 
 ## Security Notes
 

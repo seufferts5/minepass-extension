@@ -28,11 +28,6 @@
   const editLabel       = document.getElementById('edit-label');
   const editUsername    = document.getElementById('edit-username');
   const editPassword    = document.getElementById('edit-password');
-  const editMsg         = document.getElementById('edit-msg');
-  const btnSave         = document.getElementById('btn-save');
-  const btnDelete       = document.getElementById('btn-delete');
-  const btnBack         = document.getElementById('btn-back');
-  const toggleEditPw    = document.getElementById('toggle-edit-pw');
 
   // ── Helpers ─────────────────────────────────────────────────────────────────
   function msg(el, text, type) {
@@ -209,6 +204,17 @@
 
   toggleEditPw.addEventListener('click', () => {
     editPassword.type = editPassword.type === 'password' ? 'text' : 'password';
+  });
+
+  // Handle type change
+  const editUsernameLabel = document.querySelector('label[for="edit-username"]');
+  const editPasswordLabel = document.querySelector('label[for="edit-password"]');
+  editType.addEventListener('change', () => {
+    const isApiKey = editType.value === 'api_key';
+    editUsernameLabel.textContent = isApiKey ? 'API Key Name (optional)' : 'Username / Email';
+    editPasswordLabel.textContent = isApiKey ? 'API Key' : 'Password';
+    editUsername.placeholder = isApiKey ? 'e.g. OpenAI API Key' : 'username@example.com';
+    editPassword.placeholder = isApiKey ? 'sk-...' : 'Password';
   });
 
   btnBack.addEventListener('click', () => {

@@ -1,0 +1,23 @@
+{
+  "name": "minepass",
+  "version": "1.0.0",
+  "description": "Password manager that requires winning Minesweeper to unlock credentials",
+  "scripts": {
+    "build": "web-ext build",
+    "sign": "web-ext sign --api-key=$AMO_JWT_ISSUER --api-secret=$AMO_JWT_SECRET",
+    "lint": "web-ext lint"
+  },
+  "devDependencies": {
+    "web-ext": "^7.6.2"
+  },
+  "webExt": {
+    "sourceDir": ".",
+    "artifactsDir": "web-ext-artifacts",
+    "build": {
+      "overwriteDest": true
+    },
+    "run": {
+      "firefox": "firefoxdeveloperedition"
+    }
+  }
+}

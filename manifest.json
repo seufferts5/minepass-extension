@@ -3,6 +3,14 @@
   "name": "MinePass",
   "version": "1.0.0",
   "description": "Password manager that requires winning Minesweeper to unlock credentials",
+  "homepage_url": "https://github.com/yourusername/minesweeper-passwords",
+  "author": "Your Name",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "minepass@seufferts5",
+      "strict_min_version": "109.0"
+    }
+  },
   "permissions": [
     "storage",
     "activeTab"
