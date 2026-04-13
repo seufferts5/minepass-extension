@@ -1,0 +1,220 @@
+/* MinePass content overlay styles */
+
+#minepass-overlay {
+  all: initial;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(10, 10, 20, 0.88);
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+#minepass-modal {
+  all: initial;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #1a1a2e;
+  border: 1px solid #2d2d4e;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 420px;
+  width: 90vw;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  color: #e0e0f0;
+  position: relative;
+}
+
+#minepass-modal h2 {
+  all: initial;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #7c9fff;
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#minepass-modal .mp-subtitle {
+  all: initial;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 12px;
+  color: #888;
+  display: block;
+  margin-bottom: 20px;
+}
+
+#minepass-close {
+  all: initial;
+  position: absolute;
+  top: 14px; right: 14px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 18px;
+  color: #555;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: color 0.2s;
+}
+#minepass-close:hover { color: #fff; }
+
+/* Status bar */
+#minepass-status-bar {
+  all: initial;
+  display: flex;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  align-items: center;
+  justify-content: space-between;
+  background: #111126;
+  border-radius: 8px;
+  padding: 8px 14px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: #aaa;
+}
+
+#minepass-mine-count { color: #ff6b6b; font-weight: bold; font-size: 15px; }
+#minepass-timer      { color: #ffd93d; font-weight: bold; font-size: 15px; }
+#minepass-reset-btn  {
+  all: initial;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 6px;
+  line-height: 1;
+  transition: transform 0.1s;
+}
+#minepass-reset-btn:hover { transform: scale(1.2); }
+
+/* Minesweeper board */
+#minepass-board {
+  all: initial;
+  display: grid;
+  grid-template-columns: repeat(9, 34px);
+  grid-template-rows: repeat(9, 34px);
+  gap: 2px;
+  margin: 0 auto 16px;
+}
+
+.mp-cell {
+  all: initial;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.1s, transform 0.05s;
+  box-sizing: border-box;
+}
+
+.mp-cell.hidden {
+  background: #2d2d4e;
+  border: 1px solid #3d3d6e;
+}
+.mp-cell.hidden:hover {
+  background: #3a3a60;
+  transform: scale(1.05);
+}
+
+.mp-cell.revealed {
+  background: #111126;
+  border: 1px solid #1e1e38;
+  cursor: default;
+}
+
+.mp-cell.flagged {
+  background: #2d2d4e;
+  border: 1px solid #3d3d6e;
+}
+
+.mp-cell.mine-hit  { background: #8b1a1a; }
+.mp-cell.mine-show { background: #1e1e38; }
+
+/* Neighbor count colors */
+.mp-n1 { color: #6ab0ff; }
+.mp-n2 { color: #6dff9c; }
+.mp-n3 { color: #ff6b6b; }
+.mp-n4 { color: #c97dff; }
+.mp-n5 { color: #ffaa57; }
+.mp-n6 { color: #57fff8; }
+.mp-n7 { color: #ff57c8; }
+.mp-n8 { color: #c8c8c8; }
+
+/* Credential picker */
+#minepass-cred-list {
+  all: initial;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.mp-cred-item {
+  all: initial;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #111126;
+  border: 1px solid #2d2d4e;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  color: #e0e0f0;
+}
+.mp-cred-item:hover { border-color: #7c9fff; background: #1a1a38; }
+.mp-cred-item-label { font-size: 13px; font-weight: 600; }
+.mp-cred-item-user  { font-size: 11px; color: #888; }
+
+/* Messages */
+#minepass-message {
+  all: initial;
+  display: block;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  text-align: center;
+  font-size: 13px;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+#minepass-message.info    { background: #1a2a4a; color: #7c9fff; }
+#minepass-message.success { background: #1a3a2a; color: #6dff9c; }
+#minepass-message.error   { background: #3a1a1a; color: #ff6b6b; }
+
+/* MinePass trigger button injected into pages */
+.minepass-trigger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 6px;
+  padding: 4px 10px;
+  background: #2d2d4e;
+  color: #7c9fff;
+  border: 1px solid #4d4d8e;
+  border-radius: 5px;
+  font-size: 11px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: background 0.15s, border-color 0.15s;
+  letter-spacing: 0.3px;
+  z-index: 2147483640;
+  position: relative;
+}
+.minepass-trigger-btn:hover {
+  background: #3d3d6e;
+  border-color: #7c9fff;
+}

@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "MinePass",
+  "version": "1.0.0",
+  "description": "Password manager that requires winning Minesweeper to unlock credentials",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "MinePass"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ]
+}

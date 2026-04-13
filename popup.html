@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MinePass</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+  <!-- Header (always visible when unlocked) -->
+  <div class="header" id="header" style="display:none">
+    <span class="header-title">💣 MinePass</span>
+    <div class="header-actions">
+      <button class="btn btn-secondary btn-icon" id="btn-lock" title="Lock vault">🔒</button>
+    </div>
+  </div>
+
+  <!-- LOCK PANEL: shown when vault is locked or first time -->
+  <div id="panel-lock">
+    <span class="lock-icon">💣</span>
+    <div class="lock-title" id="lock-title">Unlock MinePass</div>
+    <div class="lock-sub" id="lock-sub">Enter your master password</div>
+
+    <label class="field-label" for="master-pw">Master Password</label>
+    <div class="pw-row">
+      <input type="password" class="field-input" id="master-pw" placeholder="Enter master password" autocomplete="current-password">
+      <span class="pw-toggle" id="toggle-master-pw">👁</span>
+    </div>
+
+    <div id="lock-confirm-wrap" style="display:none">
+      <label class="field-label" for="master-pw-confirm">Confirm Password</label>
+      <input type="password" class="field-input" id="master-pw-confirm" placeholder="Confirm master password" autocomplete="new-password">
+    </div>
+
+    <div class="msg" id="lock-msg"></div>
+    <button class="btn btn-primary" id="btn-unlock" style="width:100%">Unlock</button>
+  </div>
+
+  <!-- VAULT PANEL: credential list -->
+  <div id="panel-vault" style="display:none">
+    <div class="vault-toolbar">
+      <span class="vault-title">Saved Credentials</span>
+      <button class="btn btn-primary btn-icon" id="btn-add-new" title="Add new credential">＋ Add</button>
+    </div>
+    <div class="entry-list" id="entry-list">
+      <div class="empty-state">No credentials saved yet.<br>Click <strong>+ Add</strong> to add your first.</div>
+    </div>
+  </div>
+
+  <!-- EDIT PANEL: add / edit a credential -->
+  <div id="panel-edit">
+    <div class="edit-header">
+      <span class="back-btn" id="btn-back">←</span>
+      <span id="edit-title">New Credential</span>
+    </div>
+
+    <input type="hidden" id="edit-id">
+
+    <label class="field-label" for="edit-site">Website URL</label>
+    <input type="url" class="field-input" id="edit-site" placeholder="https://example.com" autocomplete="off">
+
+    <label class="field-label" for="edit-label">Label (optional)</label>
+    <input type="text" class="field-input" id="edit-label" placeholder="e.g. Work account" autocomplete="off">
+
+    <label class="field-label" for="edit-username">Username / Email</label>
+    <input type="text" class="field-input" id="edit-username" placeholder="username@example.com" autocomplete="off">
+
+    <label class="field-label" for="edit-password">Password</label>
+    <div class="pw-row">
+      <input type="password" class="field-input" id="edit-password" placeholder="Password" autocomplete="new-password">
+      <span class="pw-toggle" id="toggle-edit-pw">👁</span>
+    </div>
+
+    <div class="msg" id="edit-msg"></div>
+
+    <div style="display:flex; gap:8px">
+      <button class="btn btn-primary" id="btn-save" style="flex:1">Save</button>
+      <button class="btn btn-danger" id="btn-delete" style="display:none">Delete</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
